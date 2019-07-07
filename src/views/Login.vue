@@ -2,9 +2,11 @@
   <div class="container">
     <div class="auth">
       <h1>Welcome to Union 🏰</h1>
-      <form action="">
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+      <form @submit.prevent="login()">
+        <input type="email" placeholder="Email" v-model="email" />
+        <input type="password" placeholder="Password" v-model="password" />
+        <div class="errors">{{ errors }}</div>
+        <input type="submit" value="Login" class="submit-btn" />
       </form>
     </div>
   </div>
@@ -12,7 +14,31 @@
 
 <script>
 export default {
-  name: 'login'
+  name: 'login',
+  data() {
+    return {
+      email: '',
+      password: '',
+      errors: ''
+    }
+  },
+  methods: {
+    login() {
+      const email = this.email
+      const password = this.password
+      this.$store
+        .dispatch('login', { email, password })
+        .then(() => {
+          console.log('here')
+          this.$router.push(this.$route.query.redirectTo || '/')
+        })
+        .catch(err => {
+          console.log('Errored out')
+          console.log(err)
+          this.errors = 'There was an error logging in, please try again.'
+        })
+    }
+  }
 }
 </script>
 
@@ -50,5 +76,17 @@ form {
     padding: 10px;
     width: 100%;
   }
+
+  .submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+.errors {
+  color: #f00;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 </style>
