@@ -1,38 +1,43 @@
-# union-admin
+# Union Admin
+
+The control room for your Union information.
+From Union Admin you'll be able to manage all the information necessary to run your Union 🏰 from images, links, posts, updates and users, Union Admin is your central management control panel.
 
 ## Project setup
+
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 yarn run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 yarn run build
 ```
 
 ### Run your tests
+
 ```
 yarn run test
 ```
 
 ### Lints and fixes files
+
 ```
 yarn run lint
 ```
 
 ### Run your unit tests
+
 ```
 yarn run test:unit
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 
 ## Project board
 
