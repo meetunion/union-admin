@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
-import Home from './views/Home.vue'
+import Dashboard from './views/Dashboard.vue'
 
 Vue.use(Router)
 
@@ -12,8 +12,8 @@ const router = new Router({
     { path: '/login', component: Login },
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'dashboard',
+      component: Dashboard
     }
   ]
 })
@@ -29,7 +29,7 @@ router.beforeEach((to, from, next) => {
     return next('/login')
   }
 
-  // Redirect to home page if already logged in
+  // Redirect to dashboard page if already logged in
   if (to.path === '/login' && loggedIn) {
     return next('/')
   }

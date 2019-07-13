@@ -27,6 +27,12 @@ export default new Vuex.Store({
             reject(error)
           })
       })
+    },
+    logout() {
+      return new Promise(resolve => {
+        localStorage.removeItem('token')
+        resolve()
+      })
     }
   }
 })
